@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.serialization)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
 }
@@ -48,10 +49,15 @@ dependencies {
     implementation(libs.retrofit.converter)
     implementation(libs.okhttp3)
 
+    implementation(libs.serialization)
+    implementation(libs.converter.gson)
+
     // dagger & hilt
     ksp(libs.hilt.compiler)
     implementation(libs.dagger.compiler)
     ksp(libs.dagger.compiler)
     implementation(libs.hilt.android)
     implementation(libs.androidx.hilt.navigation.compose)
+
+    implementation(project(":feature:search:domain"))
 }

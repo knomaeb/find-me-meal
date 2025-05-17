@@ -30,7 +30,6 @@ class MainActivity : ComponentActivity() {
                 ) {
                     RecipeNavigation(navigationSubGraph = navigationSubGraph)
                 }
-                Scaffold {  }
             }
         }
     }

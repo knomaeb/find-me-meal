@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.serialization)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
 }
@@ -43,6 +44,12 @@ android {
 
 dependencies {
 
+    implementation(project(":common"))
+    implementation(project(":feature:search:domain"))
+    implementation(project(":feature:search:data"))
+    implementation(project(":feature:search:ui"))
+    implementation(project(":media_player"))
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -51,6 +58,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.material3)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -59,9 +67,13 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+    implementation(libs.androidx.navigation.compose)
+
     // coil
     implementation(libs.coil)
     implementation(libs.coil.compose)
+
+    implementation(libs.serialization)
 
     // splash screen
     implementation(libs.androidx.core.splashscreen)
@@ -77,6 +89,8 @@ dependencies {
     ksp(libs.dagger.compiler)
     implementation(libs.hilt.android)
     implementation(libs.androidx.hilt.navigation.compose)
+
+    implementation(libs.converter.gson)
 
     // room database
     implementation(libs.androidx.room.runtime)
